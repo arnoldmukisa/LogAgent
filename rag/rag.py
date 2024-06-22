@@ -1,8 +1,9 @@
 import os
+import json
 import logging
+import traceback
 from dotenv import load_dotenv
 import ai21
-import json
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -18,91 +19,78 @@ if ai21.api_key:
     logger.debug("AI21 API key loaded successfully")
 else:
     logger.error("Failed to load AI21 API key. Make sure it's set in the .env file.")
+    exit(1)
 
-def get_complexity_score(text):
-    logger.debug("Entering get_complexity_score function")
-    prompt = f"""Analyze the following log file and rate its complexity on a scale of 1-10, where 1 is very simple and 10 is extremely complex. Provide a brief explanation for your rating.
-
-Log file:
-{text}
-
-Complexity rating (1-10):"""
-
-    logger.debug("Sending request to AI21 for complexity score")
+def analyze_with_ai21(prompt, text):
+    logger.debug(f"Sending request to AI21 for prompt: {prompt[:50]}...")
     try:
         response = ai21.Completion.execute(
             model="j2-ultra",
-            prompt=prompt,
-            maxTokens=200,
+            prompt=f"{prompt}\n\nLog file:\n{text}",
+            maxTokens=500,
             temperature=0.7,
         )
-        logger.debug("Received response from AI21 for complexity score")
-        return response.completions[0].data.text
+        logger.debug("Received response from AI21")
+        return response.completions[0].data.text.strip()
     except Exception as e:
-        logger.error(f"Error in get_complexity_score: {str(e)}")
+        logger.error(f"Error in AI21 API call: {str(e)}")
+        logger.error(traceback.format_exc())
         return None
 
-def assess_log_quality(text):
-    logger.debug("Entering assess_log_quality function")
-    prompt = f"""Analyze the following log file and assess its quality based on the following criteria:
-1. Clarity of information
-2. Consistency in formatting
-3. Useful details provided
-4. Proper use of log levels
-5. Timestamp accuracy
-
-Provide a brief assessment for each criterion and an overall quality rating on a scale of 1-10, where 1 is poor quality and 10 is excellent quality.
-
-Log file:
-{text}
-
-Quality assessment:"""
-
-    logger.debug("Sending request to AI21 for quality assessment")
+def process_log_file(file_path, prompts):
+    logger.info(f"Processing file: {file_path}")
     try:
-        response = ai21.Completion.execute(
-            model="j2-ultra",
-            prompt=prompt,
-            maxTokens=300,
-            temperature=0.7,
-        )
-        logger.debug("Received response from AI21 for quality assessment")
-        return response.completions[0].data.text
+        with open(file_path, 'r') as file:
+            log_content = file.read()
+        
+        results = []
+        for prompt_dict in prompts:
+            prompt = prompt_dict['prompt']
+            result = analyze_with_ai21(prompt, log_content)
+            results.append({"prompt": prompt, "result": result})
+        
+        return results
     except Exception as e:
-        logger.error(f"Error in assess_log_quality: {str(e)}")
+        logger.error(f"Error processing {file_path}: {str(e)}")
+        logger.error(traceback.format_exc())
         return None
 
-# Read the log file
-logger.debug("Attempting to read paste.txt")
+# Load prompts from JSON file
 try:
-    with open('paste.txt', 'r') as file:
-        log_content = file.read()
-    logger.debug("Successfully read paste.txt")
-except FileNotFoundError:
-    logger.error("paste.txt not found in the current directory")
-    exit(1)
+    with open('prompts.json', 'r') as f:
+        prompts = json.load(f)
+    logger.debug("Prompts loaded successfully from prompts.json")
 except Exception as e:
-    logger.error(f"Error reading paste.txt: {str(e)}")
+    logger.error(f"Error loading prompts.json: {str(e)}")
+    logger.error(traceback.format_exc())
     exit(1)
 
-# Get complexity score
-logger.info("Getting complexity score")
-complexity_score = get_complexity_score(log_content)
-if complexity_score:
-    print("Complexity Assessment:")
-    print(complexity_score)
-else:
-    logger.error("Failed to get complexity score")
+# Get all .log files from the 'logs' directory
+logs_dir = 'logs'
+try:
+    log_files = [f for f in os.listdir(logs_dir) if f.endswith('.log')]
+    logger.info(f"Found {len(log_files)} log files in {logs_dir} directory")
+except Exception as e:
+    logger.error(f"Error reading log files from {logs_dir}: {str(e)}")
+    logger.error(traceback.format_exc())
+    exit(1)
 
-print("\n" + "="*50 + "\n")
+results = {}
 
-# Assess log quality
-logger.info("Assessing log quality")
-quality_assessment = assess_log_quality(log_content)
-if quality_assessment:
-    print("Quality Assessment:")
-    print(quality_assessment)
-else:
-    logger.error("Failed to get quality assessment")
+for log_file in log_files:
+    file_path = os.path.join(logs_dir, log_file)
+    results[log_file] = process_log_file(file_path, prompts)
+
+# Output results
+print("\n=== Analysis Results ===\n")
+for log_file, file_results in results.items():
+    print(f"File: {log_file}")
+    if file_results:
+        for result in file_results:
+            print(f"\nPrompt: {result['prompt']}")
+            print(f"Result:\n{result['result']}")
+    else:
+        print("  Failed to process this file")
+    print("\n" + "="*50 + "\n")
 
 logger.debug("Script execution completed")
