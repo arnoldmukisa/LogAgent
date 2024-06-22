@@ -78,7 +78,7 @@ def process_log_file(file_path, prompts):
 
 # Load prompts from JSON file
 try:
-    with open('prompts_v2.json', 'r') as f:
+    with open('prompts_v1.json', 'r') as f:
         prompts = json.load(f)
     logger.debug("Prompts loaded successfully from prompts.json")
 except Exception as e:
