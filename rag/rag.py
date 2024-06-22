@@ -79,7 +79,7 @@ except Exception as e:
     exit(1)
 
 # Get all .log files from the 'logs' directory
-logs_dir = 'logs'
+logs_dir = 'sample_logs'
 try:
     log_files = [f for f in os.listdir(logs_dir) if f.endswith('.log')]
     logger.info(f"Found {len(log_files)} log files in {logs_dir} directory")
