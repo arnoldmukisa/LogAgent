@@ -82,7 +82,7 @@ def process_log_file(file_path, prompt):
         return None
 
 # Single prompt for experimentation
-prompt = "Analyze this log file and provide a summary of key events, errors, and any unusual patterns."
+prompt = "Analyze this log file and provide a summary of key events, errors, and any unusual patterns. give feedack on the overall health of the system."
 
 # Single log file for experimentation
 log_file = "auth_service.log"  # Replace with your log file name
