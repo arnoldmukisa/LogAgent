@@ -1,0 +1,50 @@
+2024-06-22 14:00:00,000 - DatabaseService - INFO - Query execution time exceeded threshold: 1500ms.
+2024-06-22 14:01:11,000 - DatabaseService - INFO - Dependency service failure: ServiceB
+2024-06-22 14:02:55,000 - DatabaseService - DEBUG - Query execution time exceeded threshold: 1500ms.
+2024-06-22 14:07:08,000 - DatabaseService - CRITICAL - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 14:10:25,000 - DatabaseService - INFO - Slow response time detected: 2000ms.
+2024-06-22 14:14:07,000 - DatabaseService - WARNING - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 14:16:15,000 - DatabaseService - INFO - Database backup completed successfully.
+2024-06-22 14:18:42,000 - DatabaseService - INFO - Data integrity check failed for record: 789
+2024-06-22 14:21:05,000 - DatabaseService - ERROR - Data integrity check failed for record: 789
+2024-06-22 14:24:48,000 - DatabaseService - WARNING - Data integrity check failed for record: 789
+2024-06-22 14:26:22,000 - DatabaseService - DEBUG - Database backup completed successfully.
+2024-06-22 14:28:26,000 - DatabaseService - CRITICAL - User login attempt for user: user123
+2024-06-22 14:33:01,000 - DatabaseService - WARNING - API rate limit exceeded for user: user456
+2024-06-22 14:35:23,000 - DatabaseService - DEBUG - Service temporarily unavailable: 503
+2024-06-22 14:39:42,000 - DatabaseService - INFO - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 14:39:51,000 - DatabaseService - CRITICAL - Service temporarily unavailable: 503
+2024-06-22 14:43:47,000 - DatabaseService - DEBUG - Data integrity check failed for record: 789
+2024-06-22 14:45:45,000 - DatabaseService - ERROR - Data integrity check failed for record: 789
+2024-06-22 14:47:18,000 - DatabaseService - ERROR - User login attempt for user: user123
+2024-06-22 14:47:40,000 - DatabaseService - ERROR - Data integrity check failed for record: 789
+2024-06-22 14:48:16,000 - DatabaseService - CRITICAL - Service temporarily unavailable: 503
+2024-06-22 14:51:51,000 - DatabaseService - DEBUG - Request received from IP: 192.168.1.1
+2024-06-22 14:52:30,000 - DatabaseService - WARNING - Service temporarily unavailable: 503
+2024-06-22 14:56:55,000 - DatabaseService - DEBUG - Slow response time detected: 2000ms.
+2024-06-22 14:57:50,000 - DatabaseService - DEBUG - Request received from IP: 192.168.1.1
+2024-06-22 15:00:14,000 - DatabaseService - WARNING - 401 Unauthorized: Invalid JWT token received.
+2024-06-22 15:02:37,000 - DatabaseService - INFO - JWT validation failed: Signature verification failed.
+2024-06-22 15:06:46,000 - DatabaseService - DEBUG - Dependency service failure: ServiceB
+2024-06-22 15:08:09,000 - DatabaseService - WARNING - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 15:10:03,000 - DatabaseService - CRITICAL - Slow response time detected: 2000ms.
+2024-06-22 15:13:54,000 - DatabaseService - CRITICAL - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 15:17:46,000 - DatabaseService - WARNING - Query execution time exceeded threshold: 1500ms.
+2024-06-22 15:21:45,000 - DatabaseService - ERROR - Database backup completed successfully.
+2024-06-22 15:26:17,000 - DatabaseService - WARNING - 401 Unauthorized: Invalid JWT token received.
+2024-06-22 15:29:00,000 - DatabaseService - WARNING - JWT validation failed: Signature verification failed.
+2024-06-22 15:32:17,000 - DatabaseService - DEBUG - Database connection timeout.
+2024-06-22 15:36:25,000 - DatabaseService - INFO - User login attempt for user: user123
+2024-06-22 15:39:24,000 - DatabaseService - CRITICAL - 401 Unauthorized: Invalid JWT token received.
+2024-06-22 15:43:09,000 - DatabaseService - DEBUG - Dependency service failure: ServiceB
+2024-06-22 15:45:16,000 - DatabaseService - CRITICAL - Service temporarily unavailable: 503
+2024-06-22 15:49:25,000 - DatabaseService - INFO - Cache miss for key: user_session_123
+2024-06-22 15:53:13,000 - DatabaseService - INFO - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 15:58:10,000 - DatabaseService - WARNING - Request received from IP: 192.168.1.1
+2024-06-22 15:58:22,000 - DatabaseService - DEBUG - Database backup completed successfully.
+2024-06-22 15:59:46,000 - DatabaseService - ERROR - Data integrity check failed for record: 789
+2024-06-22 16:02:15,000 - DatabaseService - WARNING - Data integrity check failed for record: 789
+2024-06-22 16:02:19,000 - DatabaseService - WARNING - Service temporarily unavailable: 503
+2024-06-22 16:03:52,000 - DatabaseService - INFO - 401 Unauthorized: Invalid JWT token received.
+2024-06-22 16:06:54,000 - DatabaseService - ERROR - Database backup completed successfully.
+2024-06-22 16:07:32,000 - DatabaseService - CRITICAL - Service temporarily unavailable: 503

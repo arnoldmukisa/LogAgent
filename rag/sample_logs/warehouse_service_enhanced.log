@@ -1,0 +1,100 @@
+2024-06-22 23:55:00,000 UTC] [ERROR] [WarehouseService] Allocated 300 units of PROD-X to AMER
+2024-06-22 23:56:39,000 UTC] [WARNING] [WarehouseService] Investigating PROD-X inventory discrepancy
+2024-06-22 23:57:44,000 UTC] [ERROR] [WarehouseService] ORD-AMER-001 details: 300 units of PROD-X
+2024-06-22 23:58:47,000 UTC] [CRITICAL] [WarehouseService] ORD-AMER-001 details: 300 units of PROD-X
+2024-06-22 23:59:06,000 UTC] [DEBUG] [WarehouseService] Logging inventory discrepancy event for further analysis
+2024-06-23 00:02:32,000 UTC] [DEBUG] [WarehouseService] Reserving 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 00:03:29,000 UTC] [ERROR] [WarehouseService] Processing ORD-APAC-001
+2024-06-23 00:05:34,000 UTC] [DEBUG] [WarehouseService] Available PROD-X in EMEA: 300 units
+2024-06-23 00:06:30,000 UTC] [ERROR] [WarehouseService] Logging inventory discrepancy event for further analysis
+2024-06-23 00:11:25,000 UTC] [INFO] [WarehouseService] Requesting 350 units of PROD-X from warehouse
+2024-06-23 00:14:12,000 UTC] [INFO] [WarehouseService] Available PROD-X in EMEA: 300 units
+2024-06-23 00:18:01,000 UTC] [INFO] [WarehouseService] ORD-EMEA-001 details: 280 units of PROD-X
+2024-06-23 00:19:33,000 UTC] [WARNING] [WarehouseService] PROD-X stock after fulfillment: 370 units
+2024-06-23 00:20:19,000 UTC] [ERROR] [WarehouseService] Initiating root cause analysis for inventory allocation algorithm
+2024-06-23 00:20:40,000 UTC] [ERROR] [WarehouseService] Allocated 300 units of PROD-X to AMER
+2024-06-23 00:25:04,000 UTC] [ERROR] [WarehouseService] Initiating root cause analysis for inventory allocation algorithm
+2024-06-23 00:25:34,000 UTC] [ERROR] [WarehouseService] Logging inventory discrepancy event for further analysis
+2024-06-23 00:30:29,000 UTC] [INFO] [WarehouseService] Allocated 300 units of PROD-X to AMER
+2024-06-23 00:34:03,000 UTC] [INFO] [WarehouseService] Updated AMER inventory: 0 units of PROD-X
+2024-06-23 00:37:02,000 UTC] [WARNING] [WarehouseService] Allocating inventory for AMER region (UTC-5)
+2024-06-23 00:40:38,000 UTC] [CRITICAL] [WarehouseService] Updated AMER inventory: 0 units of PROD-X
+2024-06-23 00:43:09,000 UTC] [DEBUG] [WarehouseService] Checking availability for PROD-X in EMEA region
+2024-06-23 00:45:05,000 UTC] [WARNING] [WarehouseService] Requesting 280 units of PROD-X from warehouse
+2024-06-23 00:48:53,000 UTC] [CRITICAL] [WarehouseService] Checking availability for PROD-X in APAC region
+2024-06-23 00:49:54,000 UTC] [INFO] [WarehouseService] PROD-X stock after fulfillment: 370 units
+2024-06-23 00:54:41,000 UTC] [ERROR] [WarehouseService] Order placed for additional 500 units of PROD-X
+2024-06-23 00:55:44,000 UTC] [DEBUG] [WarehouseService] PROD-X stock before fulfillment: 1000 units
+2024-06-23 00:59:35,000 UTC] [DEBUG] [WarehouseService] Received order ORD-EMEA-001 from EMEA region
+2024-06-23 01:02:27,000 UTC] [ERROR] [WarehouseService] Detected potential timezone-related issue in inventory allocation
+2024-06-23 01:02:52,000 UTC] [INFO] [WarehouseService] PROD-X stock after fulfillment: 650 units
+2024-06-23 01:04:32,000 UTC] [WARNING] [WarehouseService] Allocated 300 units of PROD-X to AMER
+2024-06-23 01:07:35,000 UTC] [ERROR] [WarehouseService] Updated EMEA inventory: 20 units of PROD-X
+2024-06-23 01:10:23,000 UTC] [WARNING] [WarehouseService] Checking availability for PROD-X in AMER region
+2024-06-23 01:10:51,000 UTC] [DEBUG] [WarehouseService] Available PROD-X in EMEA: 300 units
+2024-06-23 01:13:32,000 UTC] [CRITICAL] [WarehouseService] ORD-AMER-001 details: 300 units of PROD-X
+2024-06-23 01:17:28,000 UTC] [INFO] [WarehouseService] Daily inventory reallocation complete
+2024-06-23 01:19:28,000 UTC] [WARNING] [WarehouseService] Current global inventory for PROD-X: 1000 units
+2024-06-23 01:22:30,000 UTC] [ERROR] [WarehouseService] Allocated 400 units of PROD-X to APAC
+2024-06-23 01:22:50,000 UTC] [INFO] [WarehouseService] Received order ORD-APAC-001 from APAC region
+2024-06-23 01:25:11,000 UTC] [WARNING] [WarehouseService] Fulfilling 350 units of PROD-X for ORD-APAC-001
+2024-06-23 01:30:03,000 UTC] [ERROR] [WarehouseService] Allocated 300 units of PROD-X to EMEA
+2024-06-23 01:33:51,000 UTC] [DEBUG] [WarehouseService] Order placed for additional 500 units of PROD-X
+2024-06-23 01:35:56,000 UTC] [CRITICAL] [WarehouseService] Unable to fulfill ORD-AMER-001 due to stock shortage
+2024-06-23 01:37:59,000 UTC] [INFO] [WarehouseService] Retry attempt 2 for order ORD-AMER-001
+2024-06-23 01:42:56,000 UTC] [WARNING] [WarehouseService] PROD-X stock before fulfillment: 370 units
+2024-06-23 01:47:27,000 UTC] [DEBUG] [WarehouseService] Alerting procurement team for stock replenishment
+2024-06-23 01:51:14,000 UTC] [DEBUG] [WarehouseService] Received 500 units of PROD-X from supplier
+2024-06-23 01:55:30,000 UTC] [DEBUG] [WarehouseService] Order placed for additional 500 units of PROD-X
+2024-06-23 01:58:39,000 UTC] [DEBUG] [WarehouseService] Available PROD-X in AMER: 300 units
+2024-06-23 02:02:22,000 UTC] [CRITICAL] [WarehouseService] Available PROD-X in AMER: 300 units
+2024-06-23 02:05:10,000 UTC] [INFO] [WarehouseService] Retry attempt 1 for order ORD-AMER-001 due to previous failure
+2024-06-23 02:05:34,000 UTC] [WARNING] [WarehouseService] Requesting 280 units of PROD-X from warehouse
+2024-06-23 02:07:07,000 UTC] [INFO] [WarehouseService] Checking availability for PROD-X in AMER region
+2024-06-23 02:07:25,000 UTC] [DEBUG] [WarehouseService] Checking availability for PROD-X in EMEA region
+2024-06-23 02:07:48,000 UTC] [CRITICAL] [WarehouseService] Allocated 300 units of PROD-X to AMER
+2024-06-23 02:12:13,000 UTC] [CRITICAL] [WarehouseService] Received order ORD-EMEA-001 from EMEA region
+2024-06-23 02:13:58,000 UTC] [WARNING] [WarehouseService] Logging inventory discrepancy event for further analysis
+2024-06-23 02:17:53,000 UTC] [DEBUG] [WarehouseService] Order placed for additional 500 units of PROD-X
+2024-06-23 02:21:36,000 UTC] [DEBUG] [WarehouseService] Initiating root cause analysis for inventory allocation algorithm
+2024-06-23 02:25:23,000 UTC] [WARNING] [WarehouseService] Reserving 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 02:29:41,000 UTC] [DEBUG] [WarehouseService] Order placed for additional 500 units of PROD-X
+2024-06-23 02:30:07,000 UTC] [ERROR] [WarehouseService] Daily inventory reallocation complete
+2024-06-23 02:32:25,000 UTC] [INFO] [WarehouseService] Attempting to fulfill 300 units of PROD-X for ORD-AMER-001
+2024-06-23 02:36:41,000 UTC] [CRITICAL] [WarehouseService] ORD-AMER-001 details: 300 units of PROD-X
+2024-06-23 02:41:35,000 UTC] [CRITICAL] [WarehouseService] ORD-APAC-001 details: 350 units of PROD-X
+2024-06-23 02:45:18,000 UTC] [CRITICAL] [WarehouseService] Initiating root cause analysis for inventory allocation algorithm
+2024-06-23 02:49:18,000 UTC] [WARNING] [WarehouseService] Rechecking stock for PROD-X in AMER
+2024-06-23 02:50:35,000 UTC] [WARNING] [WarehouseService] Detected potential timezone-related issue in inventory allocation
+2024-06-23 02:53:30,000 UTC] [DEBUG] [WarehouseService] PROD-X stock after fulfillment: 370 units
+2024-06-23 02:55:01,000 UTC] [CRITICAL] [WarehouseService] Reserving 300 units of PROD-X for ORD-AMER-001
+2024-06-23 02:57:56,000 UTC] [CRITICAL] [WarehouseService] Requesting 350 units of PROD-X from warehouse
+2024-06-23 03:01:53,000 UTC] [WARNING] [WarehouseService] ORD-APAC-001 details: 350 units of PROD-X
+2024-06-23 03:06:52,000 UTC] [INFO] [WarehouseService] Insufficient stock to fulfill ORD-AMER-001
+2024-06-23 03:10:37,000 UTC] [ERROR] [WarehouseService] Available PROD-X in EMEA: 300 units
+2024-06-23 03:12:02,000 UTC] [ERROR] [WarehouseService] Processing ORD-AMER-001
+2024-06-23 03:16:56,000 UTC] [DEBUG] [WarehouseService] Fulfilling 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 03:18:48,000 UTC] [INFO] [WarehouseService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 03:21:39,000 UTC] [WARNING] [WarehouseService] Attempting to fulfill 300 units of PROD-X for ORD-AMER-001
+2024-06-23 03:21:42,000 UTC] [CRITICAL] [WarehouseService] Fulfilling 350 units of PROD-X for ORD-APAC-001
+2024-06-23 03:25:05,000 UTC] [DEBUG] [WarehouseService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 03:26:40,000 UTC] [WARNING] [WarehouseService] Processing ORD-AMER-001
+2024-06-23 03:28:44,000 UTC] [ERROR] [WarehouseService] Retry failed for ORD-AMER-001, insufficient stock
+2024-06-23 03:33:03,000 UTC] [CRITICAL] [WarehouseService] Available PROD-X in EMEA: 300 units
+2024-06-23 03:34:21,000 UTC] [ERROR] [WarehouseService] PROD-X stock before fulfillment: 1000 units
+2024-06-23 03:38:27,000 UTC] [INFO] [WarehouseService] Retry successful for ORD-AMER-001
+2024-06-23 03:40:21,000 UTC] [WARNING] [WarehouseService] Allocating inventory for AMER region (UTC-5)
+2024-06-23 03:41:34,000 UTC] [ERROR] [WarehouseService] Order placed for additional 500 units of PROD-X
+2024-06-23 03:43:48,000 UTC] [ERROR] [WarehouseService] Retry successful for ORD-AMER-001
+2024-06-23 03:45:12,000 UTC] [WARNING] [WarehouseService] PROD-X stock after fulfillment: 370 units
+2024-06-23 03:49:26,000 UTC] [CRITICAL] [WarehouseService] Updated EMEA inventory: 20 units of PROD-X
+2024-06-23 03:51:36,000 UTC] [CRITICAL] [WarehouseService] Allocated 300 units of PROD-X to EMEA
+2024-06-23 03:55:02,000 UTC] [INFO] [WarehouseService] Received 500 units of PROD-X from supplier
+2024-06-23 03:56:15,000 UTC] [INFO] [WarehouseService] Checking availability for PROD-X in EMEA region
+2024-06-23 03:57:43,000 UTC] [WARNING] [WarehouseService] Inventory updated successfully
+2024-06-23 04:01:13,000 UTC] [CRITICAL] [WarehouseService] Reserving 350 units of PROD-X for ORD-APAC-001
+2024-06-23 04:02:10,000 UTC] [ERROR] [WarehouseService] Stock available in AMER: 0 units
+2024-06-23 04:03:23,000 UTC] [ERROR] [WarehouseService] PROD-X stock before fulfillment: 370 units
+2024-06-23 04:04:07,000 UTC] [DEBUG] [WarehouseService] Retry attempt 2 for order ORD-AMER-001
+2024-06-23 04:06:44,000 UTC] [DEBUG] [WarehouseService] Allocating inventory for AMER region (UTC-5)
+2024-06-23 04:08:59,000 UTC] [ERROR] [WarehouseService] Logging inventory discrepancy event for further analysis

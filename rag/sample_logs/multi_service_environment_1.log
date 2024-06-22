@@ -1,0 +1,9 @@
+2024-06-22 14:00:00,000 - WebService - ERROR - 500 Internal Server Error: Failed to connect to AuthService.
+2024-06-22 14:01:00,000 - WebService - WARNING - 401 Unauthorized: Invalid JWT token received.
+2024-06-22 14:02:00,000 - WebService - INFO - Request received from IP: 192.168.1.1
+2024-06-22 14:03:00,000 - AuthService - ERROR - JWT validation failed: Signature verification failed.
+2024-06-22 14:04:00,000 - AuthService - WARNING - Slow response time detected: 2000ms.
+2024-06-22 14:05:00,000 - AuthService - INFO - User login attempt for user: user123
+2024-06-22 14:06:00,000 - DatabaseService - ERROR - Database connection timeout.
+2024-06-22 14:07:00,000 - DatabaseService - WARNING - Query execution time exceeded threshold: 1500ms.
+2024-06-22 14:08:00,000 - DatabaseService - INFO - Database backup completed successfully.
