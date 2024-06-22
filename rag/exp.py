@@ -60,7 +60,7 @@ def analyze_with_ai21(prompt, text):
         logger.error(traceback.format_exc())
         return None
 
-def process_log_file(file_path, prompts):
+def process_log_file(file_path, prompt):
     logger.info(f"Processing file: {file_path}")
     start_time = time.time()
     try:
@@ -68,17 +68,12 @@ def process_log_file(file_path, prompts):
             log_content = file.read()
         logger.debug(f"Log file size: {len(log_content)} characters")
         
-        results = []
-        for i, prompt_dict in enumerate(prompts, 1):
-            prompt = prompt_dict['prompt']
-            logger.debug(f"Processing prompt {i} of {len(prompts)}")
-            result = analyze_with_ai21(prompt, log_content)
-            results.append({"prompt": prompt, "result": result})
+        result = analyze_with_ai21(prompt, log_content)
         
         end_time = time.time()
         duration = end_time - start_time
         logger.info(f"Completed processing {file_path} in {duration:.2f} seconds")
-        return results
+        return result
     except Exception as e:
         end_time = time.time()
         duration = end_time - start_time
@@ -86,48 +81,33 @@ def process_log_file(file_path, prompts):
         logger.error(traceback.format_exc())
         return None
 
-# Load prompts from JSON file
-try:
-    with open('prompts_v2.json', 'r') as f:
-        prompts = json.load(f)
-    logger.debug(f"Prompts loaded successfully from prompts_v2.json. Total prompts: {len(prompts)}")
-except Exception as e:
-    logger.error(f"Error loading prompts_v2.json: {str(e)}")
-    logger.error(traceback.format_exc())
-    exit(1)
+# Single prompt for experimentation
+prompt = "Analyze this log file and provide a summary of key events, errors, and any unusual patterns."
 
-# Get all .log files from the 'logs' directory
-logs_dir = 'logs'
-try:
-    log_files = [f for f in os.listdir(logs_dir) if f.endswith('.log')]
-    logger.info(f"Found {len(log_files)} log files in {logs_dir} directory")
-except Exception as e:
-    logger.error(f"Error reading log files from {logs_dir}: {str(e)}")
-    logger.error(traceback.format_exc())
-    exit(1)
+# Single log file for experimentation
+log_file = "auth_service.log"  # Replace with your log file name
+logs_dir = 'sample_logs'
+file_path = os.path.join(logs_dir, log_file)
 
-results = {}
+if not os.path.exists(file_path):
+    logger.error(f"Log file not found: {file_path}")
+    exit(1)
 
 total_start_time = time.time()
-for i, log_file in enumerate(log_files, 1):
-    logger.info(f"Processing file {i} of {len(log_files)}: {log_file}")
-    file_path = os.path.join(logs_dir, log_file)
-    results[log_file] = process_log_file(file_path, prompts)
+
+result = process_log_file(file_path, prompt)
 
 total_end_time = time.time()
 total_duration = total_end_time - total_start_time
-logger.info(f"Total processing time for all files: {total_duration:.2f} seconds")
+logger.info(f"Total processing time: {total_duration:.2f} seconds")
 
-# Output results
-print("\n=== Analysis Results ===\n")
-for log_file, file_results in results.items():
-    print(f"File: {log_file}")
-    if file_results:
-        for result in file_results:
-            print(f"\nPrompt: {result['prompt']}")
-            print(f"Result:\n{result['result']}")
-    else:
-        print("  Failed to process this file")
-    print("\n" + "="*50 + "\n")
+# Output result
+print("\n=== Analysis Result ===\n")
+print(f"File: {log_file}")
+if result:
+    print(f"\nPrompt: {prompt}")
+    print(f"Result:\n{result}")
+else:
+    print("  Failed to process this file")
 
 logger.debug("Script execution completed")
