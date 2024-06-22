@@ -2,6 +2,8 @@ import os
 import json
 import logging
 import traceback
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 from dotenv import load_dotenv
 from ai21 import AI21Client
 from ai21.models import Penalty
@@ -20,10 +22,16 @@ if ai21_api_key:
     logger.debug("AI21 API key loaded successfully")
 else:
     logger.error("Failed to load AI21 API key. Make sure it's set in the .env file.")
-    exit(1)
+    raise HTTPException(status_code=500, detail="AI21 API key not found")
 
 # Initialize AI21 client
 client = AI21Client(api_key=ai21_api_key)
+
+# Initialize FastAPI app
+app = FastAPI()
+
+class LogFileInput(BaseModel):
+    file_path: str
 
 def analyze_with_ai21(prompt, text):
     logger.debug(f"Sending request to AI21 for prompt: {prompt[:50]}...")
@@ -48,7 +56,7 @@ def analyze_with_ai21(prompt, text):
     except Exception as e:
         logger.error(f"Error in AI21 API call: {str(e)}")
         logger.error(traceback.format_exc())
-        return None
+        raise HTTPException(status_code=500, detail="Error in AI21 API call")
 
 def process_log_file(file_path, prompts):
     logger.info(f"Processing file: {file_path}")
@@ -66,7 +74,7 @@ def process_log_file(file_path, prompts):
     except Exception as e:
         logger.error(f"Error processing {file_path}: {str(e)}")
         logger.error(traceback.format_exc())
-        return None
+        raise HTTPException(status_code=500, detail=f"Error processing file: {str(e)}")
 
 # Load prompts from JSON file
 try:
@@ -76,36 +84,18 @@ try:
 except Exception as e:
     logger.error(f"Error loading prompts.json: {str(e)}")
     logger.error(traceback.format_exc())
-    exit(1)
+    raise HTTPException(status_code=500, detail="Error loading prompts file")
 
-# Get all .log files from the 'logs' directory
-logs_dir = 'sample_logs_v1'
-try:
-    log_files = [f for f in os.listdir(logs_dir) if f.endswith('.log')]
-    logger.info(f"Found {len(log_files)} log files in {logs_dir} directory")
-except Exception as e:
-    logger.error(f"Error reading log files from {logs_dir}: {str(e)}")
-    logger.error(traceback.format_exc())
-    exit(1)
+@app.post("/analyze_log")
+async def analyze_log(log_input: LogFileInput):
+    file_path = log_input.file_path
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="Log file not found")
+    
+    results = process_log_file(file_path, prompts)
+    
+    return {"file": os.path.basename(file_path), "results": results}
 
-results = {}
-
-for log_file in log_files:
-    file_path = os.path.join(logs_dir, log_file)
-    results[log_file] = process_log_file(file_path, prompts)
-
-# Output results
-print("\n=== Analysis Results ===\n")
-for log_file, file_results in results.items():
-    print(f"File: {log_file}")
-    if file_results:
-        for result in file_results:
-            print(f"\nPrompt: {result['prompt']}")
-            print(f"Result:\n{result['result']}")
-            # add separator
-            print("\n" + "-"*50 + "\n")
-    else:
-        print("  Failed to process this file")
-    print("\n" + "="*50 + "\n")
-
-logger.debug("Script execution completed")
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,2 +1,4 @@
 python-dotenv  
 ai21
+fastapi
+uvicorn
