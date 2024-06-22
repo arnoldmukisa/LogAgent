@@ -1,0 +1,100 @@
+2024-06-22 23:55:00,000 UTC] [DEBUG] [InventoryService] Sending stock shortage alert to inventory management team
+2024-06-22 23:55:07,000 UTC] [CRITICAL] [InventoryService] Allocated 300 units of PROD-X to EMEA
+2024-06-22 23:55:59,000 UTC] [DEBUG] [InventoryService] Detected potential timezone-related issue in inventory allocation
+2024-06-22 23:57:49,000 UTC] [INFO] [InventoryService] ORD-APAC-001 details: 350 units of PROD-X
+2024-06-23 00:00:45,000 UTC] [CRITICAL] [InventoryService] Fulfilling 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 00:04:29,000 UTC] [INFO] [InventoryService] Checking availability for PROD-X in EMEA region
+2024-06-23 00:06:06,000 UTC] [ERROR] [InventoryService] ORD-AMER-001 details: 300 units of PROD-X
+2024-06-23 00:09:13,000 UTC] [ERROR] [InventoryService] Attempting to fulfill 300 units of PROD-X for ORD-AMER-001
+2024-06-23 00:13:30,000 UTC] [DEBUG] [InventoryService] Running daily inventory reallocation job
+2024-06-23 00:17:31,000 UTC] [CRITICAL] [InventoryService] Requesting 350 units of PROD-X from warehouse
+2024-06-23 00:18:24,000 UTC] [WARNING] [InventoryService] Retry successful for ORD-AMER-001
+2024-06-23 00:22:51,000 UTC] [WARNING] [InventoryService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 00:26:46,000 UTC] [WARNING] [InventoryService] Available PROD-X in APAC: 400 units
+2024-06-23 00:27:46,000 UTC] [INFO] [InventoryService] Checking availability for PROD-X in EMEA region
+2024-06-23 00:29:48,000 UTC] [DEBUG] [InventoryService] Reserving 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 00:30:05,000 UTC] [WARNING] [InventoryService] Attempting to fulfill 300 units of PROD-X for ORD-AMER-001
+2024-06-23 00:32:03,000 UTC] [ERROR] [InventoryService] Retry successful for ORD-AMER-001
+2024-06-23 00:35:29,000 UTC] [CRITICAL] [InventoryService] ORD-APAC-001 details: 350 units of PROD-X
+2024-06-23 00:38:27,000 UTC] [INFO] [InventoryService] Attempting to fulfill 300 units of PROD-X for ORD-AMER-001
+2024-06-23 00:42:00,000 UTC] [INFO] [InventoryService] Updated APAC inventory: 50 units of PROD-X
+2024-06-23 00:43:57,000 UTC] [INFO] [InventoryService] PROD-X stock after fulfillment: 650 units
+2024-06-23 00:47:42,000 UTC] [DEBUG] [InventoryService] Daily inventory reallocation complete
+2024-06-23 00:50:41,000 UTC] [WARNING] [InventoryService] Requesting 280 units of PROD-X from warehouse
+2024-06-23 00:52:53,000 UTC] [CRITICAL] [InventoryService] Analyzing inventory allocation logs
+2024-06-23 00:53:08,000 UTC] [DEBUG] [InventoryService] Detected inventory discrepancy for PROD-X
+2024-06-23 00:55:26,000 UTC] [ERROR] [InventoryService] Checking availability for PROD-X in AMER region
+2024-06-23 00:57:04,000 UTC] [WARNING] [InventoryService] Rechecking stock for PROD-X in AMER
+2024-06-23 01:01:52,000 UTC] [ERROR] [InventoryService] Rechecking stock for PROD-X in AMER
+2024-06-23 01:05:04,000 UTC] [DEBUG] [InventoryService] Retry attempt 1 for order ORD-AMER-001 due to previous failure
+2024-06-23 01:06:35,000 UTC] [CRITICAL] [InventoryService] Analyzing inventory allocation logs
+2024-06-23 01:08:06,000 UTC] [INFO] [InventoryService] Allocated 300 units of PROD-X to EMEA
+2024-06-23 01:10:59,000 UTC] [ERROR] [InventoryService] Reserving 350 units of PROD-X for ORD-APAC-001
+2024-06-23 01:14:59,000 UTC] [INFO] [InventoryService] Available PROD-X in EMEA: 300 units
+2024-06-23 01:19:36,000 UTC] [DEBUG] [InventoryService] Detected potential timezone-related issue in inventory allocation
+2024-06-23 01:24:03,000 UTC] [CRITICAL] [InventoryService] Allocated 400 units of PROD-X to APAC
+2024-06-23 01:24:18,000 UTC] [CRITICAL] [InventoryService] Checking availability for PROD-X in EMEA region
+2024-06-23 01:27:03,000 UTC] [DEBUG] [InventoryService] Current global inventory for PROD-X: 1000 units
+2024-06-23 01:30:17,000 UTC] [WARNING] [InventoryService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 01:35:14,000 UTC] [WARNING] [InventoryService] Order placed for additional 500 units of PROD-X
+2024-06-23 01:35:55,000 UTC] [ERROR] [InventoryService] Received order ORD-APAC-001 from APAC region
+2024-06-23 01:37:00,000 UTC] [DEBUG] [InventoryService] Available PROD-X in APAC: 400 units
+2024-06-23 01:37:22,000 UTC] [WARNING] [InventoryService] ORD-EMEA-001 details: 280 units of PROD-X
+2024-06-23 01:38:39,000 UTC] [WARNING] [InventoryService] Reserving 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 01:40:33,000 UTC] [DEBUG] [InventoryService] Allocating inventory for APAC region (UTC+8)
+2024-06-23 01:40:58,000 UTC] [ERROR] [InventoryService] Unable to fulfill ORD-AMER-001 due to stock shortage
+2024-06-23 01:44:54,000 UTC] [CRITICAL] [InventoryService] Detected potential timezone-related issue in inventory allocation
+2024-06-23 01:49:18,000 UTC] [CRITICAL] [InventoryService] Received order ORD-AMER-001 from AMER region
+2024-06-23 01:52:13,000 UTC] [CRITICAL] [InventoryService] PROD-X stock before fulfillment: 370 units
+2024-06-23 01:54:20,000 UTC] [CRITICAL] [InventoryService] Updated EMEA inventory: 20 units of PROD-X
+2024-06-23 01:57:33,000 UTC] [INFO] [InventoryService] Processing ORD-EMEA-001
+2024-06-23 02:01:14,000 UTC] [CRITICAL] [InventoryService] Fulfilling 350 units of PROD-X for ORD-APAC-001
+2024-06-23 02:04:59,000 UTC] [ERROR] [InventoryService] Processing ORD-APAC-001
+2024-06-23 02:05:18,000 UTC] [INFO] [InventoryService] Processing ORD-AMER-001
+2024-06-23 02:09:17,000 UTC] [DEBUG] [InventoryService] Sending stock shortage alert to inventory management team
+2024-06-23 02:11:07,000 UTC] [INFO] [InventoryService] Available PROD-X in APAC: 400 units
+2024-06-23 02:11:08,000 UTC] [DEBUG] [InventoryService] Logging inventory discrepancy event for further analysis
+2024-06-23 02:12:44,000 UTC] [DEBUG] [InventoryService] Allocating inventory for APAC region (UTC+8)
+2024-06-23 02:12:48,000 UTC] [CRITICAL] [InventoryService] Requesting 280 units of PROD-X from warehouse
+2024-06-23 02:15:43,000 UTC] [WARNING] [InventoryService] Retry successful for ORD-AMER-001
+2024-06-23 02:17:08,000 UTC] [DEBUG] [InventoryService] PROD-X stock after fulfillment: 370 units
+2024-06-23 02:21:02,000 UTC] [WARNING] [InventoryService] Analyzing order processing logs across regions
+2024-06-23 02:25:52,000 UTC] [ERROR] [InventoryService] Order placed for additional 500 units of PROD-X
+2024-06-23 02:28:19,000 UTC] [WARNING] [InventoryService] Allocated 300 units of PROD-X to EMEA
+2024-06-23 02:30:03,000 UTC] [ERROR] [InventoryService] Insufficient stock to fulfill ORD-AMER-001
+2024-06-23 02:31:30,000 UTC] [CRITICAL] [InventoryService] Retry failed for ORD-AMER-001, insufficient stock
+2024-06-23 02:33:57,000 UTC] [DEBUG] [InventoryService] ORD-EMEA-001 details: 280 units of PROD-X
+2024-06-23 02:34:03,000 UTC] [INFO] [InventoryService] Order placed for additional 500 units of PROD-X
+2024-06-23 02:37:25,000 UTC] [INFO] [InventoryService] Allocated 400 units of PROD-X to APAC
+2024-06-23 02:42:01,000 UTC] [WARNING] [InventoryService] Unable to fulfill ORD-AMER-001 due to stock shortage
+2024-06-23 02:44:56,000 UTC] [ERROR] [InventoryService] Reserving 300 units of PROD-X for ORD-AMER-001
+2024-06-23 02:48:29,000 UTC] [DEBUG] [InventoryService] Fulfilling 280 units of PROD-X for ORD-EMEA-001
+2024-06-23 02:49:24,000 UTC] [DEBUG] [InventoryService] Unable to fulfill ORD-AMER-001 due to stock shortage
+2024-06-23 02:52:35,000 UTC] [CRITICAL] [InventoryService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 02:55:13,000 UTC] [WARNING] [InventoryService] Allocated 400 units of PROD-X to APAC
+2024-06-23 02:56:33,000 UTC] [WARNING] [InventoryService] Retry attempt 1 for order ORD-AMER-001 due to previous failure
+2024-06-23 02:57:07,000 UTC] [INFO] [InventoryService] PROD-X stock before fulfillment: 650 units
+2024-06-23 03:01:48,000 UTC] [CRITICAL] [InventoryService] Allocating inventory for APAC region (UTC+8)
+2024-06-23 03:04:12,000 UTC] [CRITICAL] [InventoryService] Detected potential timezone-related issue in inventory allocation
+2024-06-23 03:08:03,000 UTC] [INFO] [InventoryService] ORD-APAC-001 details: 350 units of PROD-X
+2024-06-23 03:09:57,000 UTC] [DEBUG] [InventoryService] Running daily inventory reallocation job
+2024-06-23 03:10:30,000 UTC] [DEBUG] [InventoryService] PROD-X stock after fulfillment: 650 units
+2024-06-23 03:10:52,000 UTC] [DEBUG] [InventoryService] Allocated 400 units of PROD-X to APAC
+2024-06-23 03:12:59,000 UTC] [CRITICAL] [InventoryService] PROD-X stock after fulfillment: 650 units
+2024-06-23 03:17:57,000 UTC] [WARNING] [InventoryService] Received order ORD-AMER-001 from AMER region
+2024-06-23 03:22:08,000 UTC] [CRITICAL] [InventoryService] Sending stock shortage alert to inventory management team
+2024-06-23 03:24:15,000 UTC] [DEBUG] [InventoryService] Detected potential timezone-related issue in inventory allocation
+2024-06-23 03:28:47,000 UTC] [INFO] [InventoryService] Attempting to fulfill 300 units of PROD-X for ORD-AMER-001
+2024-06-23 03:29:46,000 UTC] [WARNING] [InventoryService] Requesting 300 units of PROD-X from warehouse
+2024-06-23 03:33:29,000 UTC] [CRITICAL] [InventoryService] Detected inventory discrepancy for PROD-X
+2024-06-23 03:34:36,000 UTC] [INFO] [InventoryService] Reserving 350 units of PROD-X for ORD-APAC-001
+2024-06-23 03:34:47,000 UTC] [ERROR] [InventoryService] Checking availability for PROD-X in EMEA region
+2024-06-23 03:37:03,000 UTC] [ERROR] [InventoryService] Received 500 units of PROD-X from supplier
+2024-06-23 03:37:09,000 UTC] [DEBUG] [InventoryService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 03:40:07,000 UTC] [DEBUG] [InventoryService] PROD-X stock before fulfillment: 370 units
+2024-06-23 03:40:25,000 UTC] [WARNING] [InventoryService] Checking availability for PROD-X in APAC region
+2024-06-23 03:43:22,000 UTC] [INFO] [InventoryService] Processing ORD-APAC-001
+2024-06-23 03:44:31,000 UTC] [WARNING] [InventoryService] Received order ORD-EMEA-001 from EMEA region
+2024-06-23 03:49:21,000 UTC] [ERROR] [InventoryService] Received 500 units of PROD-X from supplier
+2024-06-23 03:49:57,000 UTC] [DEBUG] [InventoryService] Allocating inventory for EMEA region (UTC+1)
+2024-06-23 03:51:46,000 UTC] [ERROR] [InventoryService] Running daily inventory reallocation job
