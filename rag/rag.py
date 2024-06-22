@@ -3,7 +3,8 @@ import json
 import logging
 import traceback
 from dotenv import load_dotenv
-import ai21
+from ai21 import AI21Client
+from ai21.models import Penalty
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -14,21 +15,33 @@ load_dotenv()
 logger.debug("Environment variables loaded from .env file")
 
 # Get AI21 API key from environment variable
-ai21.api_key = os.getenv("AI21_API_KEY")
-if ai21.api_key:
+ai21_api_key = os.getenv("AI21_API_KEY")
+if ai21_api_key:
     logger.debug("AI21 API key loaded successfully")
 else:
     logger.error("Failed to load AI21 API key. Make sure it's set in the .env file.")
     exit(1)
 
+# Initialize AI21 client
+client = AI21Client(api_key=ai21_api_key)
+
 def analyze_with_ai21(prompt, text):
     logger.debug(f"Sending request to AI21 for prompt: {prompt[:50]}...")
     try:
-        response = ai21.Completion.execute(
+        full_prompt = f"{prompt}\n\nLog file:\n{text}"
+        response = client.completion.create(
+            prompt=full_prompt,
+            max_tokens=500,
             model="j2-ultra",
-            prompt=f"{prompt}\n\nLog file:\n{text}",
-            maxTokens=500,
             temperature=0.7,
+            top_p=1,
+            top_k_return=0,
+            stop_sequences=["##"],
+            num_results=1,
+            custom_model=None,
+            count_penalty=Penalty(scale=0),
+            frequency_penalty=Penalty(scale=0),
+            presence_penalty=Penalty(scale=0),
         )
         logger.debug("Received response from AI21")
         return response.completions[0].data.text.strip()
