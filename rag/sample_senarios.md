@@ -14,8 +14,6 @@ This high-level question allows them to start investigating the issue without ma
 
 ## prompt
 
-You're right, we need a more generalized prompt that can handle various types of questions and log formats. Here's a prompt that aligns with the PRD's goals and can be used for different scenarios:
-
 Prompt:
 
 "You are an AI assistant designed to analyze system logs and help diagnose issues in a complex distributed system. Given the following information:
