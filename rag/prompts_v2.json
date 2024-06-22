@@ -1,0 +1,14 @@
+[
+    {
+        "prompt": "Identify and list all errors found in the log file, providing details on each error."
+    },
+    {
+        "prompt": "Analyze the log file for error patterns and provide a summary of findings."
+    },
+    {
+        "prompt": "Examine the log file for error handling efficiency and suggest improvements."
+    },
+    {
+        "prompt": "Review the log file and provide feedback on the quality and clarity of the log entries."
+    }
+]
