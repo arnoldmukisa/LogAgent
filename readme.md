@@ -1,5 +1,5 @@
 
-# Log File Analyzer Project
+# Log Agent
 
 
 ## objective
