@@ -1,108 +1,85 @@
+# LogAgent
 
-# Log Agent
+## Objective
+LogAgent is a tool designed to help developers on production support by analyzing log files to debug issues that are difficult to reproduce, particularly logic or business flow issues that don't necessarily throw errors. It uses prompt engineering to guide an LLM in analyzing logs and identifying anomalies.
 
+## Features
+- **Log Analysis**: Reads and interprets log files to understand event flows and detect anomalies.
+- **Prompt Engineering**: Utilizes complex prompts to guide the LLM in analyzing logs and outputting tokens for debugging.
+- **Open Source**: Available for community use and contributions.
 
-## objective
+## Future Enhancements
+- **RAG Pipeline**: Integrate a Retrieval-Augmented Generation pipeline for deeper codebase analysis and recommendations.
+- **Large Log Support**: Expand capacity to handle logs larger than 256k tokens.
+- **Reproduction and Fixes**: Provide steps to reproduce issues and suggest fixes using codebase references.
 
+## Setup
 
-The objective of this project is to create a log file analyzer that can process log files and provide insights into the data contained within them. The application will utilize AI21's API to analyze log files and extract relevant information such as log levels, timestamps, and log messages. The analysis results will be presented to the user in an easy-to-understand format, allowing them to quickly identify patterns, anomalies, and other useful information from the log data.
+### Local Setup
+1. **Create Environment**:
+    ```sh
+    conda create -n log_analyzer python=3.10 -y
+    conda activate log_analyzer
+    ```
 
-## Design Decisions
+2. **Install Dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-- Utilized FastAPI for the backend to create a robust and fast API endpoint
-- Implemented Streamlit for the frontend to provide an intuitive user interface
-- Used AI21's API for log analysis to leverage advanced language models
-- Employed asynchronous processing in FastAPI to handle multiple requests efficiently
-- Implemented file uploading in Streamlit for easy log file submission
+3. **Run the Server**:
+    ```sh
+    python app.py
+    ```
 
-## Assumptions
+4. **Run the Streamlit App**:
+    ```sh
+    streamlit run streamlit_app.py
+    ```
 
-- Users have valid log files in a readable format
+## API Usage
 
-sample log file:
-
-```log
-[2024-06-22 23:50:01 UTC] [INFO] [SchedulerService] Starting nightly batch jobs
-[2024-06-22 23:50:02 UTC] [DEBUG] [DatabaseService] Initiating connection pool
-[2024-06-22 23:50:03 UTC] [INFO] [CacheService] Flushing expired cache entries
-[2024-06-22 23:50:04 UTC] [DEBUG] [AuthService] Rotating API keys
-[2024-06-22 23:50:05 UTC] [INFO] [MonitoringService] System health check started
-```
-
-- The AI21 API is accessible and functioning
-- Users have internet connectivity to access the Streamlit app and for the app to communicate with the FastAPI backend
-- The system running the application has sufficient computational resources to process log files and API requests
-
-## Limitations
-
-- Currently only supports .log file extensions
-- Analysis is limited by the capabilities of the AI21 model
-- The application doesn't persist analysis results; they are generated on-demand
-- There's no user authentication or rate limiting implemented
-- The size of log files that can be processed may be limited by memory constraints
-
-## Future Improvements
-
-- Implement user authentication and session management
-- Add support for multiple file formats beyond .log files
-- Integrate with other AI models or services for comparative analysis
-- Implement caching to store and quickly retrieve previous analysis results
-- Add visualization features to represent log analysis data graphically
-- Implement batch processing for multiple log files
-- Add customization options for prompts used in the analysis
-- Improve error handling and provide more detailed feedback to users
-- Implement a database to store analysis history and allow for trend analysis over time
-- Add export functionality for analysis results in various formats (PDF, CSV, etc.)
-----
-
-## setup
-
-
-### local setup
-
-```bash
-
-conda create -n log_analyzer python=3.10 -y
-
-conda activate log_analyzer
-
-pip install -r requirements.txt
-
-
-```
-
-- run the server
-
-```bash
-python app.py
-
-```
-
-- run the streamlit app
-
-```bash
-streamlit run streamlit_app.py
-```
-
-
-
-# api usage
-
-### curl request
-
-```bash
-curl -X POST "http://localhost:8000/analyze_log" \
-     -H "Content-Type: application/json" \
-     -d '{"file_path": "/path/to/your/logfile.log"}'
-
-```
-
-save the output to a file:
-```bash
-
+### Example cURL Request
+```sh
 curl -X POST "http://localhost:8000/analyze_log" \
      -H "Content-Type: application/json" \
      -d '{"file_path": "/path/to/your/logfile.log"}' \
      > analysis_results.json
-
 ```
+
+## Design Decisions
+- **Backend**: FastAPI for robust API endpoints.
+- **Frontend**: Streamlit for an intuitive user interface.
+- **Log Analysis**: AI21's API to leverage advanced language models.
+- **Asynchronous Processing**: Efficient handling of multiple requests in FastAPI.
+
+## Assumptions
+- Users have valid log files in a readable format.
+- The AI21 API is accessible and functioning.
+- Users have internet connectivity for app access and API communication.
+- The system has sufficient resources to process logs and API requests.
+
+## Limitations
+- Only supports `.log` files.
+- Analysis capabilities limited by the AI21 model.
+- No persistent storage for analysis results.
+- No user authentication or rate limiting.
+- Memory constraints may limit log file size processing.
+
+## Future Improvements
+- User authentication and session management.
+- Support for multiple file formats.
+- Integration with additional AI models for comparative analysis.
+- Caching and trend analysis over time.
+- Graphical visualization of log analysis data.
+- Batch processing for multiple log files.
+- Customizable prompts for analysis.
+- Improved error handling and user feedback.
+- Export functionality for analysis results.
+
+## Contribution
+Contributions are welcome. Please fork the repository and submit pull requests.
+
+---
+
+By improving the README with clear sections on the objective, features, setup instructions, usage examples, design decisions, assumptions, limitations, and future improvements, users will have a comprehensive guide to understanding and using LogAgent.
