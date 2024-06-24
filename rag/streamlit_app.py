@@ -12,7 +12,7 @@ from collections import Counter
 # FastAPI endpoint URL
 API_URL = "http://localhost:8000/analyze_log"
 
-st.title("Log File Analyzer")
+st.title("Log Agent")
 
 # File uploader
 uploaded_file = st.file_uploader("Choose a log file", type="log")
