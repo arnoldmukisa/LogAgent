@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import './index.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
@@ -51,7 +51,13 @@ const About = () => (
   </section>
 );
 
-const FeatureCard = ({ title, description, icon }) => (
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const FeatureCard = ({ title, description, icon }: FeatureCardProps) => (
   <div className="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:scale-105">
     <div className="text-4xl text-blue-600 mb-4">{icon}</div>
     <h3 className="text-xl font-bold mb-2">{title}</h3>
