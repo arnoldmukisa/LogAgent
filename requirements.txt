@@ -2,3 +2,7 @@ python-dotenv
 ai21
 fastapi
 uvicorn
+matplotlib
+wordcloud
+pandas
+anthropic

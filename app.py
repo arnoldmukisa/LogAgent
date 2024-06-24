@@ -72,16 +72,19 @@ class LogFileInput(BaseModel):
 def analyze_with_claude(prompt, text):
     logger.debug(f"Sending request to Claude for prompt: {prompt[:50]}...")
     try:
-        full_prompt = f"{HUMAN_PROMPT} {prompt}\n\nLog file:\n{text}{AI_PROMPT}"
-        response = client.completions.create(
+        messages = [
+            {"role": "user", "content": f"{prompt}\n\nLog file:\n{text}"},
+        ]
+        response = client.messages.create(
             model="claude-3-5-sonnet-20240620",
-            prompt=full_prompt,
-            max_tokens_to_sample=500,
+            messages=messages,
+            max_tokens=1000,
             temperature=0,
             top_p=1,
         )
         logger.debug("Received response from Claude")
-        return response.completion.strip()
+        result = response.content[0].text
+        return result
     except Exception as e:
         logger.error(f"Error in Claude API call: {str(e)}")
         logger.error(traceback.format_exc())
